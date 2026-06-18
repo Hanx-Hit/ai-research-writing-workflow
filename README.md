@@ -8,9 +8,11 @@ Prompt 内容整理自社区项目 [Leey21/awesome-ai-research-writing](https://
 
 原来每个 prompt 要手动复制、手动判断该用 LaTeX 版还是 Word 版、手动一步步串起来。现在：
 
-- **一键全流程**：`/paper-workflow` 贴入草稿，自动 翻译/写作 → 润色 → 去 AI 味 → 逻辑检查 → 审稿，**关键阶段暂停让你确认**，最后产出三块结果：**修改方向 + 修改意见 + 中英文完全对照**。
+- **一键全流程**：`/paper-workflow` 贴入草稿（或给出论文文件路径），自动 翻译/写作 → 润色 → 去 AI 味 → 逻辑检查 → 真实性核查 → 审稿，**关键阶段暂停让你确认**，最后产出三块结果：**修改方向 + 修改意见 + 中英文完全对照**。
 - **单功能调用**：任何一步都能用 `/<skill 名>` 独立触发。
 - **自动检测**：运行时自动判断输入是 LaTeX 还是 Word 纯文本、是中文还是英文，选用对应规则，无需手动指定。
+- **文件模式**：除了贴正文，也可直接给 `.tex` / `.docx` / 数据文件路径——agent 用 Read 读入、处理后经确认用 Edit 写回原文件，不必来回手动复制粘贴（回写前会先征得同意，建议先备份/commit）。
+- **真实性闸门**：专设一环核查引用是否真实、正文数字与实验表是否一致、有无 overclaim；核不准的引用只标 `[CITATION NEEDED]`，绝不替你编造。
 
 ## 安装
 
@@ -41,7 +43,7 @@ npx openskills install <your-github-username>/ai-research-writing-workflow
 
 ### 一键全流程
 
-在对话中输入 `/paper-workflow`，或直接说「走一遍论文流程」「帮我把这段草稿处理成投稿稿」，然后贴入草稿即可。流程会在润色后、去 AI 味后、逻辑检查后、审稿后各暂停一次，等你确认或微调，最后给出修改方向、修改意见与中英文逐段对照。
+在对话中输入 `/paper-workflow`，或直接说「走一遍论文流程」「帮我把这段草稿处理成投稿稿」，然后贴入草稿或给出论文文件路径即可。流程会在润色后、去 AI 味后、逻辑检查后、真实性核查后、审稿后各暂停一次，等你确认或微调，最后给出修改方向、修改意见与中英文逐段对照。
 
 ### 单功能调用
 
@@ -51,8 +53,9 @@ npx openskills install <your-github-username>/ai-research-writing-workflow
 | `/paper-translate` | 翻译：中转英 / 英转中 / 中转中（自动按语言+格式分流） |
 | `/paper-polish` | 表达润色：英文 LaTeX 深度润色 / 中文克制润色 |
 | `/paper-dehumanize` | 去 AI 味：英文 LaTeX / 中文 Word + AI 高频词表 |
-| `/paper-review` | Reviewer 视角审稿：审稿报告 + 改稿策略（支持 PDF 或文本） |
 | `/paper-logic-check` | 逻辑红线审查：只报致命错误 |
+| `/paper-verify` | 真实性闸门：核对引用真实性、数字一致性、overclaim |
+| `/paper-review` | Reviewer 视角审稿：审稿报告 + 改稿策略（支持 PDF 或文本） |
 | `/paper-resize` | 缩写 / 扩写（微幅 ±5–15 词） |
 | `/paper-analysis` | 实验数据 → LaTeX 分析段落 |
 | `/paper-caption` | 生成图 / 表的英文标题 |
