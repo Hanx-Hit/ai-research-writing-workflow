@@ -66,6 +66,11 @@ npx openskills install <your-github-username>/ai-research-writing-workflow
 - **格式**：文本含 `\cite{}` `\ref{}` `\begin{}` `$...$` 等标记 → 按 LaTeX 处理（保留命令、转义 `%`/`_`/`&`）；否则按 Word / 纯文本处理（不转义、不带 Markdown，便于直接粘贴 Word）。
 - **语言**：按中英文占比判定。中文草稿在全流程中先翻译/重写为目标语言，并保留中文直译用于最终对照；英文初稿直接进入润色。
 
-## 致谢
+## 致谢与版权
 
-Prompt 原始内容来自 [Leey21/awesome-ai-research-writing](https://github.com/Leey21/awesome-ai-research-writing)，遵循其开源精神。本仓库仅做工作流封装与编排。
+本仓库中各 skill 内嵌的 **prompt 文本内容**衍生自 [Leey21/awesome-ai-research-writing](https://github.com/Leey21/awesome-ai-research-writing)，整理自 MSRA、字节 Seed、上海 AI Lab 及北大/中科大/上交等一线科研人员的实战写作 prompt。
+
+- **版权归属**：这些 prompt 文本的版权归原作者所有。本仓库仅在其基础上做**工作流封装与编排**（skill 切分、自动分流、总控流水线、文件模式、真实性闸门等编排逻辑为本仓库原创）。
+- **衍生版本锚点**：内容对齐上游 `main` 分支 commit [`c07628b`](https://github.com/Leey21/awesome-ai-research-writing/commit/c07628b453309a1fb131ee105b2f01190162bc6c)（2026-05-18）。上游后续更新不会自动同步到本仓库。
+- **许可证说明**：截至上述锚点，上游仓库**未声明开源许可证**（即默认保留所有权利）。因此本仓库**不另行附加任何开源许可证**，也不对内嵌 prompt 文本主张授权。如需将本工作流用于再分发或商业用途，请先与上游原作者确认授权。若你是原作者并希望调整此处署名或授权方式，欢迎提 issue。
+
